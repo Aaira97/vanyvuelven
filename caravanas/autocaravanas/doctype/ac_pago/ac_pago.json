@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-25 10:54:36.992453",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "reserva",
+  "tipo_de_pago",
+  "importe_total",
+  "fecha_de_pago",
+  "column_break_wqcy",
+  "estado",
+  "id_stripe"
+ ],
+ "fields": [
+  {
+   "fieldname": "reserva",
+   "fieldtype": "Link",
+   "label": "Reserva",
+   "options": "AC Reserva"
+  },
+  {
+   "fieldname": "tipo_de_pago",
+   "fieldtype": "Select",
+   "label": "Tipo de Pago",
+   "options": "Efectivo\nTarjeta de D\u00e9bito/Cr\u00e9dito\nTransferencia Bancaria"
+  },
+  {
+   "fieldname": "importe_total",
+   "fieldtype": "Currency",
+   "label": "Importe Total"
+  },
+  {
+   "fieldname": "column_break_wqcy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "estado",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "En Espera\nPagado\nCancelado"
+  },
+  {
+   "fieldname": "id_stripe",
+   "fieldtype": "Data",
+   "label": "ID Stripe"
+  },
+  {
+   "fieldname": "fecha_de_pago",
+   "fieldtype": "Date",
+   "label": "Fecha de Pago"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-04-29 09:59:46.132857",
+ "modified_by": "Administrator",
+ "module": "Autocaravanas",
+ "name": "AC Pago",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

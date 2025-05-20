@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:nombre",
+ "creation": "2025-04-25 10:47:30.233442",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "cifnif",
+  "nombre",
+  "apellidos",
+  "fecha_de_nacimiento",
+  "nacionalidad",
+  "column_break_prtp",
+  "telefono",
+  "correo_electonico",
+  "permiso_de_conducir",
+  "validez_de_permiso",
+  "direccion"
+ ],
+ "fields": [
+  {
+   "fieldname": "cifnif",
+   "fieldtype": "Data",
+   "label": "CIF/NIF"
+  },
+  {
+   "fieldname": "nombre",
+   "fieldtype": "Data",
+   "label": "Nombre",
+   "unique": 1
+  },
+  {
+   "fieldname": "apellidos",
+   "fieldtype": "Data",
+   "label": "Apellidos"
+  },
+  {
+   "fieldname": "nacionalidad",
+   "fieldtype": "Data",
+   "label": "Nacionalidad"
+  },
+  {
+   "fieldname": "column_break_prtp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "permiso_de_conducir",
+   "fieldtype": "Data",
+   "label": "Permiso de Conducir"
+  },
+  {
+   "fieldname": "validez_de_permiso",
+   "fieldtype": "Date",
+   "label": "Validez de Permiso"
+  },
+  {
+   "fieldname": "telefono",
+   "fieldtype": "Data",
+   "label": "Tel\u00e9fono"
+  },
+  {
+   "fieldname": "correo_electonico",
+   "fieldtype": "Data",
+   "label": "Correo Elect\u00f3nico"
+  },
+  {
+   "fieldname": "fecha_de_nacimiento",
+   "fieldtype": "Date",
+   "label": "Fecha de Nacimiento"
+  },
+  {
+   "fieldname": "direccion",
+   "fieldtype": "Data",
+   "label": "Direcci\u00f3n"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-12 08:21:02.854067",
+ "modified_by": "Administrator",
+ "module": "Autocaravanas",
+ "name": "AC Conductor",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "nombre"
+}

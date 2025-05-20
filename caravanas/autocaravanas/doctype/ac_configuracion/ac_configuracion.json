@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-25 10:57:45.577657",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "importe_minimo",
+  "porcentaje_de_entrada",
+  "clave_api_stripe",
+  "column_break_qbdl",
+  "correo_electronico"
+ ],
+ "fields": [
+  {
+   "fieldname": "porcentaje_de_entrada",
+   "fieldtype": "Float",
+   "label": "Porcentaje de Entrada"
+  },
+  {
+   "fieldname": "clave_api_stripe",
+   "fieldtype": "Data",
+   "label": "Clave API Stripe"
+  },
+  {
+   "fieldname": "column_break_qbdl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "importe_minimo",
+   "fieldtype": "Currency",
+   "label": "Importe M\u00ednimo"
+  },
+  {
+   "fieldname": "correo_electronico",
+   "fieldtype": "Data",
+   "label": "Correo Electr\u00f3nico"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-04-29 11:19:00.868453",
+ "modified_by": "Administrator",
+ "module": "Autocaravanas",
+ "name": "AC Configuracion",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

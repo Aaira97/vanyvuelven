@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-25 10:51:05.744722",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "autocaravana",
+  "cliente",
+  "conductor",
+  "extras",
+  "conductor_adicional",
+  "fecha_recogida",
+  "fecha_devolucion",
+  "column_break_eiif",
+  "lugar_recogida",
+  "lugar_devolucion",
+  "estado",
+  "metodo_de_pago",
+  "importe_pagado"
+ ],
+ "fields": [
+  {
+   "fieldname": "autocaravana",
+   "fieldtype": "Link",
+   "label": "Autocaravana",
+   "options": "AC Autocaravana"
+  },
+  {
+   "fieldname": "cliente",
+   "fieldtype": "Link",
+   "label": "Cliente",
+   "options": "AC Cliente"
+  },
+  {
+   "fieldname": "conductor",
+   "fieldtype": "Link",
+   "label": "Conductor",
+   "options": "AC Conductor"
+  },
+  {
+   "fieldname": "fecha_recogida",
+   "fieldtype": "Date",
+   "label": "Fecha Recogida"
+  },
+  {
+   "fieldname": "column_break_eiif",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lugar_recogida",
+   "fieldtype": "Data",
+   "label": "Lugar Recogida"
+  },
+  {
+   "fieldname": "importe_pagado",
+   "fieldtype": "Currency",
+   "label": "Importe Pagado"
+  },
+  {
+   "default": "Pendiente",
+   "fieldname": "estado",
+   "fieldtype": "Select",
+   "label": "Estado",
+   "options": "Pendiente\nConfirmada\nEn Curso\nFinalizada\nCancelada"
+  },
+  {
+   "fieldname": "extras",
+   "fieldtype": "Table",
+   "label": "Extras",
+   "options": "AC Extras"
+  },
+  {
+   "fieldname": "fecha_devolucion",
+   "fieldtype": "Date",
+   "label": "Fecha Devoluci\u00f3n"
+  },
+  {
+   "fieldname": "lugar_devolucion",
+   "fieldtype": "Data",
+   "label": "Lugar Devoluci\u00f3n"
+  },
+  {
+   "fieldname": "metodo_de_pago",
+   "fieldtype": "Select",
+   "label": "M\u00e9todo de Pago",
+   "options": "Efectivo\nTarjeta de D\u00e9bito/Cr\u00e9dito\nTransferencia Bancaria"
+  },
+  {
+   "fieldname": "conductor_adicional",
+   "fieldtype": "Table",
+   "label": "Conductor Adicional",
+   "options": "AC Conductores Adicionales"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-05 10:08:18.795256",
+ "modified_by": "Administrator",
+ "module": "Autocaravanas",
+ "name": "AC Reserva",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
