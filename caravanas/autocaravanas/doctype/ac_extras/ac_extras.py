@@ -4,6 +4,6 @@
 # import frappe
 from frappe.model.document import Document
 
-
+#metodo para el doctype AC Extras ->
 class ACExtras(Document):
 	pass
