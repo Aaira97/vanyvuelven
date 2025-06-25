@@ -1,52 +1,79 @@
-# Copyright (c) 2025, aaira and contributors
-# For license information, please see license.txt
-
-from frappe.model.document import Document
 import frappe
-from frappe.model import DisplayField
-from datetime import datetime
+import uuid
+import json
+from datetime import datetime, timedelta
+from frappe.utils import now_datetime, add_to_date
 
-class ACReservaTemporal(Document):
-    def before_insert(self):
-        """Validar que el UUID no esté vacío"""
-        if not self.uuid:
-            frappe.throw("El UUID es obligatorio para la reserva temporal.")
+class ACReservaTemporal(frappe.model.document.Document):
+    pass
 
-    def calcular_importe_estimado(self):
-        """Método para calcular el importe estimado de la reserva temporal"""
-        importe_estimado = 0
+@frappe.whitelist(allow_guest=True)
+def crear_reserva_temporal():
+    if frappe.request.method != "POST":
+        frappe.throw("Este método solo acepta solicitudes POST.")
 
-        # Obtener la autocaravana
-        autocaravana = frappe.get_doc("AC Autocaravana", self.autocaravana)
-        precio_por_dia = autocaravana.precio_por_dia
-        dias_reserva = (self.fechas_fin - self.fechas_inicio).days
+    try:
+        data = json.loads(frappe.request.data)
+    except Exception:
+        frappe.throw("No se pudo interpretar el cuerpo JSON.")
 
-        # Calcular el precio base de la autocaravana
-        importe_estimado += precio_por_dia * dias_reserva
+    autocaravana_id = data.get("autocaravana_id")
+    fecha_inicio = data.get("fecha_inicio")
+    fecha_fin = data.get("fecha_fin")
+    extras = data.get("extras", [])
 
-        # Calcular los extras
-        for extra in self.extras:
-            extra_doc = frappe.get_doc("AC Extras", extra.extra)
-            if extra_doc.precio_fijo_o_por_dia == "Por Día":
-                importe_estimado += extra_doc.precio * dias_reserva * extra.cantidad
-            else:
-                importe_estimado += extra_doc.precio * extra.cantidad
+    if not autocaravana_id or not fecha_inicio or not fecha_fin:
+        frappe.throw("Faltan datos obligatorios para crear la reserva temporal.")
 
-        return importe_estimado
+    now = now_datetime()
 
-    def after_insert(self):
-        """Acciones después de la creación de la reserva temporal"""
-        # Calcular el importe estimado y guardar en el campo
-        self.importe_estimado = self.calcular_importe_estimado()
-        self.save()
-        
-    # Campos adicionales en la clase
-    cliente = frappe.Field('Link', 'AC Cliente', allow_null=True, label="Cliente", required=False)
-    uuid = frappe.Field('Data', allow_null=True, label="UUID")
-    extras = frappe.Field('Table', 'AC Extras', allow_null=True, label="Extras")
-    fechas_inicio = frappe.Field('Date', required=True)
-    fechas_fin = frappe.Field('Date', required=True)
-    expira_en = frappe.Field('Datetime', default=datetime.now())
-    estado = frappe.Field('Select', choices=["Activa", "Expirada"], default="Activa")
-    importe_estimado = frappe.Field('Currency', precision=2, default=0)
+    # Eliminar reservas expiradas
+    expiradas = frappe.get_all("AC Reserva Temporal", filters={"expira_en": ["<", now]})
+    for r in expiradas:
+        frappe.delete_doc("AC Reserva Temporal", r.name, ignore_permissions=True)
 
+    # Validar conflictos con reservas temporales activas
+    conflictos = frappe.get_all(
+        "AC Reserva Temporal",
+        filters={
+            "autocaravana": autocaravana_id,
+            "fecha_inicio": ["<", fecha_fin],
+            "fecha_fin": [">", fecha_inicio],
+            "estado": "Activo"
+        }
+    )
+
+    if conflictos:
+        frappe.throw("Las fechas seleccionadas ya están bloqueadas temporalmente.")
+
+    # Construir la tabla hija
+    extras_child_table = []
+    for item in extras:
+        if isinstance(item, dict) and item.get("extra"):
+            extras_child_table.append({
+                "doctype": "AC Extra Reserva",
+                "extra": item["extra"],
+                "precio_por_dia": item.get("precio_por_dia", 0),
+                "cantidad": item.get("cantidad", 1),
+                "total": item.get("total", 0)
+            })
+
+    # Crear la reserva
+    reserva = frappe.get_doc({
+        "doctype": "AC Reserva Temporal",
+        "uuid": str(uuid.uuid4()),
+        "autocaravana": autocaravana_id,
+        "fecha_inicio": fecha_inicio,
+        "fecha_fin": fecha_fin,
+        "estado": "Activo",
+        "expira_en": now + timedelta(minutes=15),
+        "extras": extras_child_table
+    })
+
+    reserva.insert(ignore_permissions=True)
+    frappe.db.commit()
+
+    return {
+        "uuid": reserva.uuid,
+        "expira_en": reserva.expira_en
+    }

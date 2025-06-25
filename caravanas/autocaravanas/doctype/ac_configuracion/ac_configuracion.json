@@ -5,18 +5,11 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "importe_minimo",
-  "porcentaje_de_entrada",
   "clave_api_stripe",
   "column_break_qbdl",
   "correo_electronico"
  ],
  "fields": [
-  {
-   "fieldname": "porcentaje_de_entrada",
-   "fieldtype": "Float",
-   "label": "Porcentaje de Entrada"
-  },
   {
    "fieldname": "clave_api_stripe",
    "fieldtype": "Data",
@@ -27,19 +20,15 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "importe_minimo",
-   "fieldtype": "Currency",
-   "label": "Importe M\u00ednimo"
-  },
-  {
    "fieldname": "correo_electronico",
    "fieldtype": "Data",
    "label": "Correo Electr\u00f3nico"
   }
  ],
+ "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-29 11:19:00.868453",
+ "modified": "2025-06-12 16:40:23.467389",
  "modified_by": "Administrator",
  "module": "Autocaravanas",
  "name": "AC Configuracion",
@@ -58,6 +47,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": []

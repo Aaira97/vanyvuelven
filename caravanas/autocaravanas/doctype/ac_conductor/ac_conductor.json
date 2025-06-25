@@ -6,24 +6,20 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "cifnif",
   "nombre",
   "apellidos",
-  "fecha_de_nacimiento",
-  "nacionalidad",
-  "column_break_prtp",
+  "tipo_de_identificaci\u00f3n",
+  "nifcifpasaporte",
+  "email",
   "telefono",
-  "correo_electonico",
+  "column_break_prtp",
+  "direccion",
+  "nacionalidad",
+  "fecha_de_nacimiento",
   "permiso_de_conducir",
-  "validez_de_permiso",
-  "direccion"
+  "validez_de_permiso"
  ],
  "fields": [
-  {
-   "fieldname": "cifnif",
-   "fieldtype": "Data",
-   "label": "CIF/NIF"
-  },
   {
    "fieldname": "nombre",
    "fieldtype": "Data",
@@ -60,11 +56,6 @@
    "label": "Tel\u00e9fono"
   },
   {
-   "fieldname": "correo_electonico",
-   "fieldtype": "Data",
-   "label": "Correo Elect\u00f3nico"
-  },
-  {
    "fieldname": "fecha_de_nacimiento",
    "fieldtype": "Date",
    "label": "Fecha de Nacimiento"
@@ -73,11 +64,27 @@
    "fieldname": "direccion",
    "fieldtype": "Data",
    "label": "Direcci\u00f3n"
+  },
+  {
+   "fieldname": "tipo_de_identificaci\u00f3n",
+   "fieldtype": "Select",
+   "label": "Tipo de Identificaci\u00f3n",
+   "options": "DNI\nCIF\nNIE\nPasaporte"
+  },
+  {
+   "fieldname": "nifcifpasaporte",
+   "fieldtype": "Data",
+   "label": "CIF/NIF"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Correo Elect\u00f3nico"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-12 08:21:02.854067",
+ "modified": "2025-06-10 12:14:33.813493",
  "modified_by": "Administrator",
  "module": "Autocaravanas",
  "name": "AC Conductor",
@@ -97,6 +104,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],

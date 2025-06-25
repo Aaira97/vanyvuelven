@@ -8,8 +8,6 @@
   "autocaravana",
   "cliente",
   "conductor",
-  "extras",
-  "conductor_adicional",
   "fecha_recogida",
   "fecha_devolucion",
   "column_break_eiif",
@@ -17,7 +15,10 @@
   "lugar_devolucion",
   "estado",
   "metodo_de_pago",
-  "importe_pagado"
+  "importe_pagado",
+  "section_break_lhkh",
+  "extras",
+  "conductor_adicional"
  ],
  "fields": [
   {
@@ -68,7 +69,7 @@
    "fieldname": "extras",
    "fieldtype": "Table",
    "label": "Extras",
-   "options": "AC Extras"
+   "options": "AC Extras Reserva"
   },
   {
    "fieldname": "fecha_devolucion",
@@ -91,11 +92,15 @@
    "fieldtype": "Table",
    "label": "Conductor Adicional",
    "options": "AC Conductores Adicionales"
+  },
+  {
+   "fieldname": "section_break_lhkh",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-05 10:08:18.795256",
+ "modified": "2025-06-06 11:38:56.041347",
  "modified_by": "Administrator",
  "module": "Autocaravanas",
  "name": "AC Reserva",
@@ -114,6 +119,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": []

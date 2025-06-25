@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "cliente",
   "reserva",
   "tipo_de_pago",
   "importe_total",
@@ -50,11 +51,18 @@
    "fieldname": "fecha_de_pago",
    "fieldtype": "Date",
    "label": "Fecha de Pago"
+  },
+  {
+   "fieldname": "cliente",
+   "fieldtype": "Link",
+   "label": "Cliente",
+   "options": "AC Cliente"
   }
  ],
+ "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-29 09:59:46.132857",
+ "modified": "2025-06-12 10:02:23.561059",
  "modified_by": "Administrator",
  "module": "Autocaravanas",
  "name": "AC Pago",
@@ -73,6 +81,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": []

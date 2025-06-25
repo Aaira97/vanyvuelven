@@ -7,12 +7,13 @@
  "field_order": [
   "uuid",
   "autocaravana",
-  "extras",
   "column_break_ccdu",
   "fecha_inicio",
   "fecha_fin",
   "estado",
-  "expira_en"
+  "expira_en",
+  "section_break_gvav",
+  "extras"
  ],
  "fields": [
   {
@@ -30,7 +31,7 @@
    "fieldname": "extras",
    "fieldtype": "Table",
    "label": "Extras",
-   "options": "AC Extras"
+   "options": "AC Extras Reserva"
   },
   {
    "fieldname": "column_break_ccdu",
@@ -50,17 +51,21 @@
    "fieldname": "estado",
    "fieldtype": "Select",
    "label": "Estado ",
-   "options": "Activo\nNo activo"
+   "options": "Activo\nInactivo"
   },
   {
    "fieldname": "expira_en",
    "fieldtype": "Datetime",
    "label": "Expira En"
+  },
+  {
+   "fieldname": "section_break_gvav",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-05 13:37:17.914557",
+ "modified": "2025-06-04 15:33:49.855231",
  "modified_by": "Administrator",
  "module": "Autocaravanas",
  "name": "AC Reserva Temporal",
@@ -79,6 +84,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": []

@@ -6,6 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "cliente",
   "conductor"
  ],
  "fields": [
@@ -14,17 +15,25 @@
    "fieldtype": "Link",
    "label": "Conductor",
    "options": "AC Conductor"
+  },
+  {
+   "fieldname": "cliente",
+   "fieldtype": "Link",
+   "label": "Cliente",
+   "options": "AC Cliente"
   }
  ],
+ "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-04-30 08:22:45.915606",
+ "modified": "2025-06-09 09:38:50.721814",
  "modified_by": "Administrator",
  "module": "Autocaravanas",
  "name": "AC Conductores Adicionales",
  "owner": "Administrator",
  "permissions": [],
+ "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": []
